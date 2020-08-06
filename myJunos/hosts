@@ -1,0 +1,36 @@
+[ISP]
+isp1  ansible_host=192.168.32.211
+isp2  ansible_host=192.168.32.212
+
+[NA]
+na-rt1  ansible_host=192.168.32.213
+na-rt2  ansible_host=192.168.32.214
+na-core1  ansible_host=10.1.1.11
+na-sw1  ansible_host=10.1.1.12
+
+[EU]
+eu-rt1  ansible_host=192.168.32.215
+eu-rt2  ansible_host=192.168.32.216
+
+[AP]
+ap-rt1  ansible_host=192.168.32.217
+ap-rt2  ansible_host=192.168.32.218
+
+[ROUTER]
+na-rt[1:2]
+eu-rt[1:2]
+ap-rt[1:2]
+isp[1:2]
+
+[CORE]
+na-core1
+
+[TOR]
+na-sw1
+
+[NETWORK:children]
+ROUTER
+CORE
+TOR
+ISP
+
